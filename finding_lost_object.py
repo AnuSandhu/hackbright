@@ -16,10 +16,17 @@ while True:
         print "Thank you for visiting, %s." % (name)
         break        
     if response == "yes":
-        print "%s, Concentrate on lost object and" % (name)
-        number = raw_input("input  a nine-digit number:" )     
+        print "%s, Concentrate on lost object and" % (name),"\n","                           _________"  
+        number = raw_input("input  a nine-digit number:")   
         total_sum = sum(int(x) for x in number.strip())
-        print total_sum
+        
+        if (len(number) == 9 and total_sum >=6):
+            print total_sum
+            continue
+        else:
+            print "Either you did not enter a nine-digit number or the sum of your numbers is less then 6.  Please enter again."
+            break
+            
         if total_sum  == 6:
             print"It is near cleaning material or footgear.  Be careful not to blame someone else."
             break
@@ -251,9 +258,4 @@ while True:
             print "Thank you for visiting, %s." % (name)
             break
 
-
-
- 
-
-   	
 
