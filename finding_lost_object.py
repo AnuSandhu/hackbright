@@ -6,27 +6,35 @@ print 'I am here to help you.'
  #asks person if they lost an object.
 
 name = raw_input('Tell me your name. ')
-response = raw_input( "%s, Have you lost any object? Please answer with a yes or no.  " % (name))
-digits = []
 
-#check for response and return response
+    #check for response and return response
 while True: 
+    response = raw_input( "%s, Have you lost any object?  " % (name))
+    # should check if intput is yes/no otherwise prompt user again to input correctly.
+    if (response !='yes'  and  response != 'no'):
+        
     
+        print('Please answer "yes" or "no".')
+        continue
+    #if input correct then check for these conditions.    
     if response == "no":
         print "Thank you for visiting, %s." % (name)
         break        
     if response == "yes":
         print "%s, Concentrate on lost object and" % (name),"\n","                           _________"  
         number = raw_input("input  a nine-digit number:")   
+        # sepearate each digit and add them to get a whole number.
         total_sum = sum(int(x) for x in number.strip())
         
-        if (len(number) == 9 and total_sum >=6):
-            print total_sum
-            continue
-        else:
+        
+        # testing condition that user enters 9 digits and the sum is greater than or equal to 6
+        while (len(number) != 9 or total_sum <6):
             print "Either you did not enter a nine-digit number or the sum of your numbers is less then 6.  Please enter again."
-            break
-            
+            number = raw_input("input  a nine-digit number:")   
+            # sepearate each digit and add them to get a whole number.
+            total_sum = sum(int(x) for x in number.strip())
+        
+        # use total_sum to output a result    
         if total_sum  == 6:
             print"It is near cleaning material or footgear.  Be careful not to blame someone else."
             break
