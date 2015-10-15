@@ -29,9 +29,13 @@ while True:
     if response == "yes":
         print "%s, concentrate on lost object and" % (name.capitalize()),"\n","                            _________"  
         number = raw_input("Input a nine-digit number:  ")   
-            
+        while str.isdigit(number) != True:
+            print "Please enter numbers only."
+            print "%s, concentrate on lost object and" % (name.capitalize()),"\n","                             _________" 
+            number = raw_input("Input  a nine-digit number:  ")   
+            # sepearate each digit and add them to get a whole number.
+            total_sum = sum(int(x) for x in number.strip())
         #sepearate each digit and add them to get a whole number.
-            
         total_sum = sum(int(x) for x in number.strip())
 
         # testing condition that user enters 9 digits and the sum is greater than or equal to 6
